@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements OnPdfSelectListen
     public void display(){
         mRecyclerView = findViewById(R.id.rv);
         mRecyclerView .setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
         pdfList = new ArrayList<>();
         pdfList.addAll(findPdf(Environment.getExternalStorageDirectory()));

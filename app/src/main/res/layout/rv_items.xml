@@ -19,11 +19,12 @@
 
         <ImageView
             android:id="@+id/imv_cardView"
-            android:layout_width="80dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:src="@drawable/download"/>
 
         <TextView
             android:id="@+id/txtView"
