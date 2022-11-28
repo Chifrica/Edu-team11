@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "81315746628",
+    "firebase_url": "https://my-project-123-346909-default-rtdb.firebaseio.com",
+    "project_id": "my-project-123-346909",
+    "storage_bucket": "my-project-123-346909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81315746628:android:2a1107c6b0cfd0f1e3fd11",
+        "android_client_info": {
+          "package_name": "com.company.ble.ble.elibro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81315746628-pm8ibb6il85hgg41g7nu9kqivc5991iv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9_yT_svVzE08gR6Cn0bBofwkMm7cM1bM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81315746628-pm8ibb6il85hgg41g7nu9kqivc5991iv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
