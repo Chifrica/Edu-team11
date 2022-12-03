@@ -20,14 +20,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnPdfSelectListener{
+public class MainActivity extends AppCompatActivity implements OnPdfSelectListener {
 
-    private MainAdapter mAdapter;
+    private Adapter mAdapter;
     private RecyclerView mRecyclerView;
     private List<File> pdfList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements OnPdfSelectListen
         pdfList = new ArrayList<>();
         pdfList.addAll(findPdf(Environment.getExternalStorageDirectory()));
 
-        mAdapter = new MainAdapter(this, pdfList, this);
+        mAdapter = new Adapter(this, pdfList, this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -88,4 +89,5 @@ public class MainActivity extends AppCompatActivity implements OnPdfSelectListen
                 .putExtra("path", file.getAbsolutePath())
         );
     }
+
 }

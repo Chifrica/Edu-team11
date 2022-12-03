@@ -42,6 +42,12 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.3'
     implementation "com.github.barteksc:android-pdf-viewer:2.8.2"
 
+    //Firebase
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'com.google.firebase:firebase-firestore:24.4.0'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'

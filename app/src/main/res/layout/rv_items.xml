@@ -24,7 +24,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/download"/>
+            android:src="@drawable/pdf_image_red"/>
 
         <TextView
             android:id="@+id/txtView"
