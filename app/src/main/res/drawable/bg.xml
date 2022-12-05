@@ -6,6 +6,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/PDF_blue" />
+            android:src="@drawable/pdf_image_red" />
     </item>
 </layer-list>

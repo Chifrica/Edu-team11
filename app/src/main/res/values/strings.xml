@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">eLibro</string>
+    <string name="welcome_to_elibro">Welcome to eLibro</string>
+    <string name="splashscreen_image">SplashScreen image</string>
 </resources>
