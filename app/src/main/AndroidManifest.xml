@@ -18,10 +18,14 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-<!--            <meta-data-->
-<!--                android:name="android.app.lib_name"-->
-<!--                android:value="" />-->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
+
+        <activity android:name=".PdfActivity"
+            android:exported="false"
+            />
 
         <activity android:name=".SplashScreen"
             android:exported="true">
