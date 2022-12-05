@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="169dp"
             android:layout_height="93dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/welcome_to_elibro"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -20,8 +20,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="419dp"
-            tools:ignore="MissingConstraints"/>
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView"
