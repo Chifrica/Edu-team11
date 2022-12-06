@@ -1,4 +1,4 @@
-package ble.ble.elibro;
+package ble.ble.elibro.model;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import ble.ble.elibro.R;
 
 public class MainViewHolder extends RecyclerView.ViewHolder{
 

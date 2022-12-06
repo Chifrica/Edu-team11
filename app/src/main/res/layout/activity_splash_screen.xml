@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ble.ble.elibro.SplashScreen">
+    tools:context="ble.ble.elibro.util.SplashScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/welcome_to_elibro"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/purple_500"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

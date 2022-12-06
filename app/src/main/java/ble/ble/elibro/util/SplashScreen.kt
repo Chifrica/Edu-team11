@@ -1,10 +1,12 @@
-package ble.ble.elibro
+package ble.ble.elibro.util
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import ble.ble.elibro.R
+import ble.ble.elibro.MainActivity
 
 
 class SplashScreen : AppCompatActivity() {
