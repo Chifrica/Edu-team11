@@ -1,28 +1,20 @@
-package ble.ble.elibro;
+package ble.ble.elibro
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.github.barteksc.pdfviewer.PDFView
+import java.io.File
 
-import android.net.Uri;
-import android.os.Bundle;
-
-import com.github.barteksc.pdfviewer.PDFView;
-
-import java.io.File;
-
-public class PdfActivity extends AppCompatActivity {
-
-    String filePath = "";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf);
-
-        PDFView pdfView = findViewById(R.id.pdfView);
-        filePath = getIntent().getStringExtra("path");
-
-        File file = new File(filePath);
-        Uri path = Uri.fromFile(file);
-        pdfView.fromUri(path).load();
+class PdfActivity : AppCompatActivity() {
+    var filePath: String? = ""
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_pdf)
+        val pdfView = findViewById<PDFView>(R.id.pdfView)
+        this.filePath = intent.getStringExtra("path")
+        val file = filePath?.let { File(it) }
+        val path = Uri.fromFile(file)
+        pdfView.fromUri(path).load()
     }
 }

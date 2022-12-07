@@ -1,93 +1,78 @@
-package ble.ble.elibro;
+package ble.ble.elibro
 
-import android.Manifest;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Environment;
+import android.Manifest
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import android.os.Bundle
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.listener.single.PermissionListener
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.PermissionToken
+import androidx.recyclerview.widget.GridLayoutManager
+import android.os.Environment
+import android.content.Intent
+import com.karumi.dexter.listener.PermissionRequest
+import java.io.File
+import java.util.ArrayList
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements OnPdfSelectListener {
-
-    private Adapter mAdapter;
-    private RecyclerView mRecyclerView;
-    private List<File> pdfList;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        runtimePermission();
+class MainActivity : AppCompatActivity(), OnPdfSelectListener {
+    private var mAdapter: Adapter? = null
+    private lateinit var mRecyclerView: RecyclerView
+    private var pdfList: MutableList<File>? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        runtimePermission()
     }
 
-    private void runtimePermission(){
-        Dexter.withContext(MainActivity.this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                .withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        display();
-                    }
+    private fun runtimePermission() {
+        Dexter.withContext(this@MainActivity)
+            .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+            .withListener(object : PermissionListener {
+                override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                    display()
+                }
 
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-                        permissionToken.continuePermissionRequest();
-                    }
-                }).check();
+                override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {}
+                override fun onPermissionRationaleShouldBeShown(
+                    permissionRequest: PermissionRequest,
+                    permissionToken: PermissionToken
+                ) {
+                    permissionToken.continuePermissionRequest()
+                }
+            }).check()
     }
 
-    public ArrayList<File> findPdf (File file){
-        ArrayList<File> arrayList = new ArrayList<>();
-        File[] files = file.listFiles();
-
-        for (File singleFiles : files){
-            if (singleFiles.isDirectory() && !singleFiles.isHidden()){
-                arrayList.addAll(findPdf(singleFiles));
-            } else{
-                if (singleFiles.getName().endsWith(".pdf")){
-                    arrayList.add(singleFiles);
+    fun findPdf(file: File): ArrayList<File> {
+        val arrayList = ArrayList<File>()
+        val files = file.listFiles()
+        for (singleFiles in files) {
+            if (singleFiles.isDirectory && !singleFiles.isHidden) {
+                arrayList.addAll(findPdf(singleFiles))
+            } else {
+                if (singleFiles.name.endsWith(".pdf")) {
+                    arrayList.add(singleFiles)
                 }
             }
         }
-        return arrayList;
+        return arrayList
     }
 
-    public void display(){
-        mRecyclerView = findViewById(R.id.rv);
-        mRecyclerView .setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-
-        pdfList = new ArrayList<>();
-        pdfList.addAll(findPdf(Environment.getExternalStorageDirectory()));
-
-        mAdapter = new Adapter(this, pdfList, this);
-        mRecyclerView.setAdapter(mAdapter);
+    fun display() {
+        mRecyclerView = findViewById(R.id.rv)
+        mRecyclerView.setHasFixedSize(true)
+        mRecyclerView.setLayoutManager(GridLayoutManager(this, 1))
+        pdfList = ArrayList()
+        (pdfList as ArrayList<File>).addAll(findPdf(Environment.getExternalStorageDirectory()))
+        mAdapter = Adapter(this, pdfList as ArrayList<File>, this)
+        mRecyclerView.setAdapter(mAdapter)
     }
 
-    @Override
-    public void onPdfSelected(File file) {
-        startActivity(new Intent(MainActivity.this, PdfActivity.class)
-                .putExtra("path", file.getAbsolutePath())
-        );
+    override fun onPdfSelected(file: File) {
+        startActivity(
+            Intent(this@MainActivity, PdfActivity::class.java)
+                .putExtra("path", file.absolutePath)
+        )
     }
-
 }
