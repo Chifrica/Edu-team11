@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pdf_cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,6 +13,7 @@
     app:cardElevation="8dp">
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
@@ -21,20 +23,21 @@
             android:id="@+id/imv_cardView"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:src="@drawable/pdf_image_red"
             android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/pdf_image_red"/>
+            android:layout_marginLeft="5dp" />
 
         <TextView
             android:id="@+id/txtView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
+            android:layout_height="39dp"
             android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             android:height="50dp"
             android:ellipsize="marquee"
             android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="6dp"
             android:scrollHorizontally="true"
@@ -42,8 +45,8 @@
             android:text="Name"
             android:textColor="@color/black"
             android:textSize="15sp"
-            android:textStyle="bold"
-            android:gravity="center_vertical"/>
+            android:textStyle="bold"/>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

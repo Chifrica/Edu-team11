@@ -23,11 +23,11 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".PdfActivity"
+        <activity android:name=".activity.PdfActivity"
             android:exported="false"
             />
 
-        <activity android:name=".SplashScreen"
+        <activity android:name=".util.SplashScreen"
             android:exported="true">
 
             <intent-filter>
